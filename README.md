@@ -32,7 +32,7 @@ O fluxo de funcionamento ocorre em duas vias principais:
 ## 🚀 Instruções de Uso (Como reproduzir)
 1. **Simulação do Hardware (Wokwi):**
    * Importe os arquivos `.ino` e `diagram.json` presentes neste repositório para um novo projeto na plataforma [Wokwi](https://wokwi.com/).
-   * No "Library Manager" do Wokwi, certifique-se de que as bibliotecas `DHT sensor library for ESPx`, `MFRC522` e `PubSubClient` estão instaladas.
+   * No "Library Manager" do Wokwi, certifique-se de que as bibliotecas `DHT sensor library for ESPx`, `MFRC522` e `PubSubClient` estão instaladas (Também no arquivo `libraries.txt`).
    * Inicie a simulação. O ESP32 se conectará à rede `Wokwi-GUEST` e ao broker HiveMQ.
 2. **Dashboard (Node-RED):**
    * Com o Node-RED rodando (local ou em nuvem), acesse o Menu e vá em **Import**.
