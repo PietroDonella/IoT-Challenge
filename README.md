@@ -1,9 +1,9 @@
 # CLYVO VET - Monitoramento IoT e Triagem Inteligente
 
 ## 👥 Integrantes
-* **Enzo Vaz – RM: 561702
-* **Lucas Ryuji Fukuda – RM: 562152
-* **Pietro Donella Salomão – RM: 561722
+* **Enzo Vaz** – RM: 561702.
+* **Lucas Ryuji Fukuda** – RM: 562152.
+* **Pietro Donella Salomão** – RM: 561722.
 
 ## 📋 Descrição do Projeto e o Problema
 Em clínicas veterinárias movimentadas, a troca de pacientes (o que pode causar medicação errada) e o estresse térmico em gaiolas de internação são riscos graves. 
