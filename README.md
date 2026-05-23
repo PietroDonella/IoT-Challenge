@@ -1,5 +1,10 @@
 # CLYVO VET - Monitoramento IoT e Triagem Inteligente
 
+## 👥 Integrantes
+* ** Enzo Vaz – RM: 561702
+* ** Lucas Ryuji Fukuda – RM: 562152
+* ** Pietro Donella Salomão – RM: 561722
+
 ## 📋 Descrição do Projeto e o Problema
 Em clínicas veterinárias movimentadas, a troca de pacientes (o que pode causar medicação errada) e o estresse térmico em gaiolas de internação são riscos graves. 
 Este projeto visa resolver esse problema criando um ecossistema de cuidado seguro para a CLYVO VET, garantindo a correta identificação dos animais e o monitoramento ambiental em tempo real durante internações e tratamentos.
