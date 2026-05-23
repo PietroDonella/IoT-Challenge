@@ -1,0 +1,256 @@
+[
+    {
+        "id": "3bbf7bf106b5d1dd",
+        "type": "tab",
+        "label": "Fluxo 2",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "e0adc047c2622a6e",
+        "type": "mqtt in",
+        "z": "3bbf7bf106b5d1dd",
+        "name": "Recebe Temp/Umid",
+        "topic": "clyvovet/internacao/temp",
+        "qos": "0",
+        "datatype": "json",
+        "broker": "2a4a9bf45b3c60be",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 410,
+        "y": 280,
+        "wires": [
+            [
+                "76d5f2973a7cd1b0",
+                "e5f0d036830adad1"
+            ]
+        ]
+    },
+    {
+        "id": "76d5f2973a7cd1b0",
+        "type": "change",
+        "z": "3bbf7bf106b5d1dd",
+        "name": "Extrai Temperatura",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.temperatura",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 630,
+        "y": 260,
+        "wires": [
+            [
+                "ef7a6cbade42a4eb"
+            ]
+        ]
+    },
+    {
+        "id": "e5f0d036830adad1",
+        "type": "change",
+        "z": "3bbf7bf106b5d1dd",
+        "name": "Extrai Umidade",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.umidade",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 630,
+        "y": 320,
+        "wires": [
+            [
+                "9caa431950dee182"
+            ]
+        ]
+    },
+    {
+        "id": "ef7a6cbade42a4eb",
+        "type": "ui_gauge",
+        "z": "3bbf7bf106b5d1dd",
+        "name": "Temperatura",
+        "group": "ea579f256668fd54",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Temperatura Atual",
+        "label": "°C",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "50",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 850,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "9caa431950dee182",
+        "type": "ui_gauge",
+        "z": "3bbf7bf106b5d1dd",
+        "name": "Umidade",
+        "group": "ea579f256668fd54",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Umidade Relativa",
+        "label": "%",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#0080ff",
+            "#0080ff",
+            "#0080ff"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 850,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "9dcccb9bbb1d3e0f",
+        "type": "mqtt in",
+        "z": "3bbf7bf106b5d1dd",
+        "name": "Recebe RFID",
+        "topic": "clyvovet/triagem/rfid",
+        "qos": "0",
+        "datatype": "json",
+        "broker": "2a4a9bf45b3c60be",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 390,
+        "y": 420,
+        "wires": [
+            [
+                "eefae5e80646beca"
+            ]
+        ]
+    },
+    {
+        "id": "eefae5e80646beca",
+        "type": "change",
+        "z": "3bbf7bf106b5d1dd",
+        "name": "Extrai ID da Coleira",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.pet_id",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 630,
+        "y": 420,
+        "wires": [
+            [
+                "946df7e311860758"
+            ]
+        ]
+    },
+    {
+        "id": "946df7e311860758",
+        "type": "ui_text",
+        "z": "3bbf7bf106b5d1dd",
+        "group": "4bf708c71940a7f5",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "Pet Identificado",
+        "label": "ID da Tag RFID:",
+        "format": "<font size=\"5\" color=\"blue\"><b>{{msg.payload}}</b></font>",
+        "layout": "row-spread",
+        "x": 850,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "2a4a9bf45b3c60be",
+        "type": "mqtt-broker",
+        "name": "HiveMQ Public Broker",
+        "broker": "broker.hivemq.com",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": ""
+    },
+    {
+        "id": "ea579f256668fd54",
+        "type": "ui_group",
+        "name": "Monitoramento Ambiental",
+        "tab": "512890d432de8168",
+        "order": 1,
+        "disp": true,
+        "width": "6"
+    },
+    {
+        "id": "4bf708c71940a7f5",
+        "type": "ui_group",
+        "name": "Triagem de Pets (RFID)",
+        "tab": "512890d432de8168",
+        "order": 2,
+        "disp": true,
+        "width": "6"
+    },
+    {
+        "id": "512890d432de8168",
+        "type": "ui_tab",
+        "name": "CLYVO VET - Internação",
+        "icon": "dashboard",
+        "order": 1
+    },
+    {
+        "id": "c3ec2079ecfa2128",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "node-red-dashboard": "3.6.6"
+        }
+    }
+]

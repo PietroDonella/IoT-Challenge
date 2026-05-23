@@ -1,0 +1,54 @@
+{
+  "version": 1,
+  "author": "Anonymous maker",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-breadboard-half", "id": "bb1", "top": -89.4, "left": -54.8, "attrs": {} },
+    {
+      "type": "board-esp32-devkit-c-v4",
+      "id": "esp",
+      "top": 104.46,
+      "left": 131.3,
+      "rotate": 270,
+      "attrs": {}
+    },
+    { "type": "wokwi-dht22", "id": "dht1", "top": -143.7, "left": 33, "attrs": {} },
+    {
+      "type": "board-mfrc522",
+      "id": "rfid1",
+      "top": -220.24,
+      "left": 104.35,
+      "rotate": 270,
+      "attrs": {}
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "esp:3V3", "bb1:bp.25", "green", [ "h2.8", "v-124.43", "v-37.5" ] ],
+    [ "esp:GND.1", "bb1:bn.25", "black", [ "v19.05", "h96", "v-171.5" ] ],
+    [ "bb1:9t.b", "bb1:bp.7", "green", [ "v0" ] ],
+    [ "bb1:10t.b", "esp:15", "green", [ "v144", "h189.2" ] ],
+    [ "bb1:12t.b", "bb1:bn.10", "green", [ "v0" ] ],
+    [ "esp:5", "bb1:23t.e", "green", [ "v-37.88", "h-6.8" ] ],
+    [ "bb1:24t.d", "esp:18", "green", [ "v144", "h-12.4" ] ],
+    [ "bb1:25t.e", "esp:23", "green", [ "v19.2", "v124.8", "h-89.2" ] ],
+    [ "bb1:26t.d", "esp:19", "green", [ "v144", "h-48", "h6.8" ] ],
+    [ "bb1:29t.e", "esp:22", "green", [ "v124.8", "h-115.2" ] ],
+    [ "bb1:30t.d", "bb1:bp.22", "green", [ "v86.4", "h-28.8" ] ],
+    [ "bb1:28t.d", "bb1:bn.23", "green", [ "v0" ] ],
+    [ "rfid1:SDA", "bb1:23t.a", "", [ "$bb" ] ],
+    [ "rfid1:SCK", "bb1:24t.a", "", [ "$bb" ] ],
+    [ "rfid1:MOSI", "bb1:25t.a", "", [ "$bb" ] ],
+    [ "rfid1:MISO", "bb1:26t.a", "", [ "$bb" ] ],
+    [ "rfid1:IRQ", "bb1:27t.a", "", [ "$bb" ] ],
+    [ "rfid1:GND", "bb1:28t.a", "", [ "$bb" ] ],
+    [ "rfid1:RST", "bb1:29t.a", "", [ "$bb" ] ],
+    [ "rfid1:3.3V", "bb1:30t.a", "", [ "$bb" ] ],
+    [ "dht1:VCC", "bb1:9t.b", "", [ "$bb" ] ],
+    [ "dht1:SDA", "bb1:10t.b", "", [ "$bb" ] ],
+    [ "dht1:NC", "bb1:11t.b", "", [ "$bb" ] ],
+    [ "dht1:GND", "bb1:12t.b", "", [ "$bb" ] ]
+  ],
+  "dependencies": {}
+}
